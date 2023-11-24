@@ -61,7 +61,7 @@ if __name__ == "__main__":
     import os
     from tqdm import tqdm
     sys.path.insert(0, '/home/')
-    from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.train_test_split import split_train_val_test
+    from correction.data.train_test_split import split_train_val_test
 
     wrf_folder = '/home/wrf_data/'
     era_folder = '/home/era_data/'

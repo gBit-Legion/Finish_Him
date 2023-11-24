@@ -1,23 +1,24 @@
 import sys
 sys.path.insert(0, '../../')
 import torch
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.config import cfg
+from correction.config import cfg
+from correction.models.constantBias import Correntor
 from torch.optim import lr_scheduler
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.models.loss import TurbulentMSE
+from correction.models.loss import TurbulentMSE
 
 import os
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.models.changeToERA5 import MeanToERA5
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.train_test_split import split_train_val_test
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.my_dataloader import WRFNPDataset
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.logger import WRFLogger
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.scalers import StandardScaler
+from correction.models.changeToERA5 import MeanToERA5
+from correction.data.train_test_split import split_train_val_test
+from correction.data.my_dataloader import WRFNPDataset
+from correction.data.logger import WRFLogger
+from correction.data.scalers import StandardScaler
 from torch.utils.data import DataLoader
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.train import train
-from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.CorrectionModel.CorrectModel import Correntor
+from correction.train import train
+
 
 if __name__ == "__main__":
     print('Device is:', cfg.GLOBAL.DEVICE)
-    batch_size = 32
+    batch_size = 16
     max_epochs = 1
 
     LR = 1e-4
@@ -49,8 +50,6 @@ if __name__ == "__main__":
     criterion = TurbulentMSE(meaner, beta=0, logger=logger).to(cfg.GLOBAL.DEVICE)
 
     model = Correntor().to(cfg.GLOBAL.DEVICE)
-
-    # model = ConstantBias(3).to(cfg.GLOBAL.DEVICE)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=1e-5)
     mult_step_scheduler = lr_scheduler.MultiStepLR(optimizer, milestones=[30, 40], gamma=0.1)

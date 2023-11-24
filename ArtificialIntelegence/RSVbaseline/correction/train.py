@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, '../../../')
+sys.path.insert(0, '../')
 import torch
 from correction.config import cfg
 from tqdm import tqdm
@@ -29,6 +29,7 @@ def train_epoch(dataloader, model, criterion, optimizer, wrf_scaler, era_scaler)
     train_loss = 0
     model.train()
 
+    iterator = 0
     for train_data, train_label in (pbar := tqdm(dataloader)):
         train_data = torch.swapaxes(train_data.type(torch.float).to(cfg.GLOBAL.DEVICE), 0, 1)
         train_label = torch.swapaxes(train_label.type(torch.float).to(cfg.GLOBAL.DEVICE), 0, 1)
@@ -37,9 +38,10 @@ def train_epoch(dataloader, model, criterion, optimizer, wrf_scaler, era_scaler)
 
         optimizer.zero_grad()
 
-        output = model(train_data)
-
+        output = model(train_data[iterator])
         loss = criterion(train_data, output, train_label)
+        iterator += 1
+
         loss.backward()
         torch.nn.utils.clip_grad_value_(model.parameters(), clip_value=50.0)
         optimizer.step()

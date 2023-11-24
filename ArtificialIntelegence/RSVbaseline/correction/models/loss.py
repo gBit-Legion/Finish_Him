@@ -22,6 +22,10 @@ class TurbulentMSE(nn.Module):
         mse1 = self.mean_mse(mean_corr, t)
         delta_corr = corr.permute(-2, -1, *list(range(len(corr.shape)-2)))-corr.mean(dim=(-1, -2))
         delta_orig = orig.permute(-2, -1, *list(range(len(orig.shape)-2)))-orig.mean(dim=(-1, -2))
+
+        delta_corr = delta_corr.view(16, 3, 210, 280)
+        delta_orig = delta_orig.permute(2, 3, 4, 0, 1)[0]
+
         mse2 = self.delta_mse(delta_corr, delta_orig)
         if logger:
             logger.accumulate_stat(mse1 + self.beta*mse2, mse1, mse2)

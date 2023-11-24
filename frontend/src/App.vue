@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Отправка</router-link> |
-    <router-link to="/props">Результат</router-link>
-  </nav>
   <router-view/>
 </template>
 

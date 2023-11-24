@@ -137,6 +137,7 @@ p {
 .file-upload {
   max-width: 800px;
   margin: auto;
+  margin-top: 10vh;
 }
 
 #box {

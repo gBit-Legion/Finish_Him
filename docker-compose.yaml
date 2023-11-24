@@ -79,17 +79,17 @@ services:
       - 3000:3000
     volumes:
       - grafana_data:/var/lib/grafana
-#  nginx:
-#    depends_on:
-#      - backend
-#      - frontend
-#    container_name: proxy-app
-#    build:
-#      context: ./nginx
-#      dockerfile: Dockerfile
-#    ports:
-#      - "80:80"
-#    restart: always
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    container_name: proxy-app
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
 
 volumes:
   prometheus_data:

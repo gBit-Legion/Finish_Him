@@ -1,20 +1,19 @@
 import sys
 sys.path.insert(0, '../../')
 import torch
-from correction.config import cfg
-from correction.models.constantBias import ConstantBias
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.config import cfg
 from torch.optim import lr_scheduler
-from correction.models.loss import TurbulentMSE
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.models.loss import TurbulentMSE
 
 import os
-from correction.models.changeToERA5 import MeanToERA5
-from correction.data.train_test_split import split_train_val_test
-from correction.data.my_dataloader import WRFNPDataset
-from correction.data.logger import WRFLogger
-from correction.data.scalers import StandardScaler
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.models.changeToERA5 import MeanToERA5
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.train_test_split import split_train_val_test
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.my_dataloader import WRFNPDataset
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.logger import WRFLogger
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.data.scalers import StandardScaler
 from torch.utils.data import DataLoader
-from correction.train import train
-
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.correction.train import train
+from ArtificialIntelegence.RSVbaseline.experiments.constantBaseline.CorrectionModel.CorrectModel import Correntor
 
 if __name__ == "__main__":
     print('Device is:', cfg.GLOBAL.DEVICE)
@@ -49,7 +48,9 @@ if __name__ == "__main__":
     meaner = MeanToERA5(os.path.join(cfg.GLOBAL.BASE_DIR, 'wrferaMapping.npy'))
     criterion = TurbulentMSE(meaner, beta=0, logger=logger).to(cfg.GLOBAL.DEVICE)
 
-    model = ConstantBias(3).to(cfg.GLOBAL.DEVICE)
+    model = Correntor().to(cfg.GLOBAL.DEVICE)
+
+    # model = ConstantBias(3).to(cfg.GLOBAL.DEVICE)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=1e-5)
     mult_step_scheduler = lr_scheduler.MultiStepLR(optimizer, milestones=[30, 40], gamma=0.1)

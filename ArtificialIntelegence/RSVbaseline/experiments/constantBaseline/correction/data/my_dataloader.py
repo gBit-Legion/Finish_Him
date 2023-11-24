@@ -61,7 +61,7 @@ def find_files(directory, pattern):
 if __name__ == "__main__":
     import sys
 
-    sys.path.insert(0, '../../../')
+    sys.path.insert(0, '../../../../../')
     from correction.data.train_test_split import split_train_val_test
 
     wrf_folder = '../../experiments/constantBaseline/train/wrf'

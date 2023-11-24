@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, '../')
+sys.path.insert(0, '../../../')
 import torch
 from correction.config import cfg
 from tqdm import tqdm

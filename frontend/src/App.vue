@@ -1,8 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Drop</router-link> |
-    <router-link to="/about">about</router-link> |
-    <router-link to="/props">props</router-link>
+    <router-link to="/">Отправка</router-link> |
+    <router-link to="/props">Результат</router-link>
   </nav>
   <router-view/>
 </template>
@@ -10,6 +9,7 @@
 <style>
 body {
   margin: 0 auto;
+  background: black;
 }
 
 #app {
@@ -17,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #5c5e80;
 
 }
 
@@ -27,7 +27,7 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #5c5e80;
 }
 
 nav a.router-link-exact-active {

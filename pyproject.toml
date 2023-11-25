@@ -20,6 +20,8 @@ rarfile = "^4.1"
 opencv-python = "^4.8.1.78"
 pendulum = "^2.1.2"
 xarray = "^2023.11.0"
+torch = "^2.1.1"
+numpy = "^1.26.2"
 
 
 [build-system]

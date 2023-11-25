@@ -9,7 +9,9 @@
       @drop.prevent="handleDrop"
       @click.prevent="openFilePicker"
     >
-      <p>Перетащите файлы сюда или кликните для выбора файла</p>
+      <p>Перетащите сюда архив</p>
+      <img class="upload-img" src="@/assets/upload.svg">
+      <p>или кликните для выбора</p>
     </div>
     <div v-if="filesToUpload.length > 0" class="preview-container">
       <h3>Предварительный просмотр:</h3>
@@ -158,12 +160,12 @@ p {
   margin-bottom: 20px;
   --borderWidth: 10px;
   position: relative;
-  box-shadow: 0px 40px 100px 60px rgba(245, 51, 51, 0.25);
+  box-shadow: 0px 40px 100px 20px rgba(245, 51, 51, 0.25);
 }
 
 .drop-area.drag-over {
-  background-color: #f1f1f1; /* Белый фон при перетаскивании */
-  box-shadow: 0px 40px 100px 60px rgba(74, 245, 51, 0.25);
+  background-color: #888888; /* Белый фон при перетаскивании */
+  box-shadow: 0px 40px 100px 20px rgba(74, 245, 51, 0.25);
 }
 
 .drop-area:after {
@@ -200,6 +202,10 @@ p {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.upload-img {
+  width: 100px;
 }
 
 .preview-container {
@@ -251,7 +257,7 @@ p {
 .btn-up {
   width: 200px;
   height: 55px;
-  font-weight: 600;
+  font-weight: 300;
 
   font-size: 20px;
   color: #000;
@@ -280,17 +286,6 @@ p {
   outline: none;
 }
 
-.btn-hover.color-2 {
-  background-image: linear-gradient(
-    to right,
-    #0ba360,
-    #3cba92,
-    #30dd8a,
-    #2bb673
-  );
-  box-shadow: 0 40px 100px 0 rgba(23, 168, 108, 0.75);
-}
-
 .btn-hover.color-1 {
   background-image: linear-gradient(
     to right,
@@ -300,5 +295,16 @@ p {
     #fbb03b
   );
   box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+.btn-hover.color-2 {
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 40px 100px 0 rgba(67, 245, 51, 0.25);
 }
 </style>

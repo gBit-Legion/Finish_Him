@@ -2,24 +2,22 @@
   <div class="box">
     <h1>{{ title }}</h1>
     <div class="map" id="box" :style="boxStyle">
-      <video :src="baseUrl + videoURL" class="video" controls>
-        Your browser does not support the video tag.
-      </video>
+      <video :src="baseUrl + videoURL" class="video" controls></video>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["videoURL", "title","shadowType"],
+  props: ["videoURL", "title", "shadowType"],
   computed: {
     boxStyle() {
       // В зависимости от типа тени возвращаем соответствующий стиль
       switch (this.shadowType) {
-        case "light":
-          return { boxShadow: "0px 50px 100px 10px rgba(245, 51, 51, 0.25)" };
-        case "dark":
-          return { boxShadow: "0px 50px 100px 10px rgba(67, 245, 51, 0.25)" };
+        case "red":
+          return { boxShadow: "0px 50px 100px 5px rgba(245, 51, 51, 0.25)" };
+        case "green":
+          return { boxShadow: "0px 50px 100px 5px rgba(67, 245, 51, 0.25)" };
         default:
           return {}; // Если тип тени не определен, возвращаем пустой стиль
       }
@@ -49,6 +47,7 @@ export default {
 
 .map {
   margin: 100px;
+  margin-top: 50px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -101,6 +100,6 @@ export default {
 }
 
 .video {
-  border-radius: calc(2 * var(--borderWidth));
+  border-radius: calc(1.2 * var(--borderWidth));
 }
 </style>

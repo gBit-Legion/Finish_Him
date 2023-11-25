@@ -27,12 +27,12 @@ class NumpyExtractor:
         # Normalize and scale the image to the 0-255 range
         image_to_show = self.np_array[0].astype(float)
         print("first", image_to_show, "\n", "__________________________")
-        image_to_show -= image_to_show.min()
+        #image_to_show -= image_to_show.min()
         print("second", image_to_show, "\n", "__________________________")
-        if image_to_show.max() != 0:
-            image_to_show *= (255.0 / image_to_show.max())
+        # if image_to_show.max() != 0:
+        #     image_to_show *= (255.0 / image_to_show.max())
         print("third", image_to_show, "\n", "__________________________")
-        image_to_show = image_to_show.astype(np.uint8)
+        # image_to_show = image_to_show.astype(np.uint8)
         print("fourth", image_to_show, "\n", "__________________________")
         # If the image has one channel, normalize and apply CLAHE
 
@@ -61,7 +61,7 @@ class NumpyExtractor:
                 image_to_show[:, :, c] = clahe.apply(image_to_show[:, :, c])
             # No need to convert colors if it is already in RGBA
 
-        # Resize image for better viewability (optional)
+        # Resize image for better viability (optional)
         image_to_show = cv2.resize(image_to_show, (width * 2, height * 2), interpolation=cv2.INTER_LINEAR)
         # Display the image
         cv2.imshow("Enhanced Image", image_to_show)
@@ -69,7 +69,7 @@ class NumpyExtractor:
         cv2.destroyAllWindows()
 
 
-# if __name__ == '__main__':
-#     ne = NumpyExtractor("wrfout_d01_2019-01-01_00%3A00%3A00.npy")
-#     ne.extract_from_file()
-#     ne.visualisation_numpy_array()
+if __name__ == '__main__':
+    ne = NumpyExtractor("wrfout_d01_2019-01-01_00%3A00%3A00.npy")
+    ne.extract_from_file()
+    ne.visualisation_numpy_array()

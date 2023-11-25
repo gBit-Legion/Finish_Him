@@ -69,7 +69,7 @@ class NumpyExtractor:
         cv2.destroyAllWindows()
 
 
-if __name__ == '__main__':
-    ne = NumpyExtractor("wrfout_d01_2019-01-01_00%3A00%3A00.npy")
-    ne.extract_from_file()
-    ne.visualisation_numpy_array()
+# if __name__ == '__main__':
+#     ne = NumpyExtractor("wrfout_d01_2019-01-01_00%3A00%3A00.npy")
+#     ne.extract_from_file()
+#     ne.visualisation_numpy_array()

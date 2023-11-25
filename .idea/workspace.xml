@@ -6,35 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7171e3eb-2386-4d91-93b0-e7fefb08d1ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/CorrectionModel/CorrectModel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/RSVbaseline.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/CorrectionModel/CorrectModel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/data/logger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/data/my_dataloader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/data/scalers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/data/train_test_split.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/helpers/ordered_easydict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/helpers/wrf2gpn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/models/changeToERA5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/models/constantBias.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/models/loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/correction/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/constantBaseline/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/dataset_to_numpy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/experiments/scaler/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/logs/era_means" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/logs/era_stds" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/logs/wrf_means" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArtificialIntelegence/RSVbaseline/logs/wrf_stds" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

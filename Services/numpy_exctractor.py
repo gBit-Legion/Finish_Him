@@ -16,57 +16,36 @@ class NumpyExtractor:
         print("Array shape:", self.np_array.shape)
         print("Array data type:", self.np_array.dtype)
 
-        if len(self.np_array.shape) != 4:
-            raise ValueError("self.np_array must be a 4D array")
-
         number_of_massive, channels, height, width = self.np_array.shape
 
-        if channels not in [1, 3, 4]:
-            raise ValueError(f"Invalid number of channels: {channels}")
-
         # Normalize and scale the image to the 0-255 range
-        image_to_show = self.np_array[0].astype(float)
-        print("first", image_to_show, "\n", "__________________________")
-        #image_to_show -= image_to_show.min()
-        print("second", image_to_show, "\n", "__________________________")
-        # if image_to_show.max() != 0:
-        #     image_to_show *= (255.0 / image_to_show.max())
-        print("third", image_to_show, "\n", "__________________________")
-        # image_to_show = image_to_show.astype(np.uint8)
-        print("fourth", image_to_show, "\n", "__________________________")
-        # If the image has one channel, normalize and apply CLAHE
+        min_val = np.min(self.np_array)
+        max_val = np.max(self.np_array)
+        scaled_array = (self.np_array - min_val) / (max_val - min_val) * 255.0
+        scaled_array = scaled_array.astype(np.uint8)
 
-        # If the image has one channel, normalize and apply CLAHE
-        if channels == 1:
-            image_to_show = image_to_show[0, :, :]
-            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-            image_to_show = clahe.apply(image_to_show)
-            # Stack to form a 3-channel grayscale image for display
-            image_to_show = cv2.cvtColor(image_to_show, cv2.COLOR_GRAY2BGR)
+        # Create video writer
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        #fourcc = -1
+        video_writer = cv2.VideoWriter('output_video.mp4', fourcc, 24, (width, height))
 
-        # If the image has three channels, normalize and apply CLAHE
-        elif channels == 3:
+        for i in range(number_of_massive):
+            image_to_show = scaled_array[i]
+
             image_to_show = np.transpose(image_to_show, (1, 2, 0))
             clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
             for c in range(3):
                 image_to_show[:, :, c] = clahe.apply(image_to_show[:, :, c])
             image_to_show = cv2.cvtColor(image_to_show, cv2.COLOR_RGB2BGR)
 
-        # If the image has four channels, process as needed
-        elif channels == 4:
-            image_to_show = np.transpose(image_to_show, (1, 2, 0))
-            # Assuming that we need to apply CLAHE on the RGB channels only
-            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-            for c in range(3):  # Apply CLAHE to the RGB channels
-                image_to_show[:, :, c] = clahe.apply(image_to_show[:, :, c])
-            # No need to convert colors if it is already in RGBA
+            # Resize image for better visibility (optional)
+            image_to_show = cv2.resize(image_to_show, (width * 2, height * 2), interpolation=cv2.INTER_LINEAR)
 
-        # Resize image for better viability (optional)
-        image_to_show = cv2.resize(image_to_show, (width * 2, height * 2), interpolation=cv2.INTER_LINEAR)
-        # Display the image
-        cv2.imshow("Enhanced Image", image_to_show)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+            # Write current frame to video file
+            video_writer.write(image_to_show)
+
+        # Release video writer
+        video_writer.release()
 
 
 if __name__ == '__main__':

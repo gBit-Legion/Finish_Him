@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, '../')
 import torch
 import os
-from correction.config import cfg
+from ArtificialIntelegence.RSVbaseline.correction.config import cfg
 from tqdm import tqdm
 import numpy as np
 import matplotlib.pyplot as plt

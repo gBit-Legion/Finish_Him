@@ -7,13 +7,13 @@ from torch.optim import lr_scheduler
 from correction.models.loss import TurbulentMSE
 
 import os
-from correction.models.changeToERA5 import MeanToERA5
-from correction.data.train_test_split import split_train_val_test
-from correction.data.my_dataloader import WRFNPDataset
-from correction.data.logger import WRFLogger
-from correction.data.scalers import StandardScaler
+from ArtificialIntelegence.RSVbaseline.correction.models.changeToERA5 import MeanToERA5
+from ArtificialIntelegence.RSVbaseline.correction.data.train_test_split import split_train_val_test
+from ArtificialIntelegence.RSVbaseline.correction.data.my_dataloader import WRFNPDataset
+from ArtificialIntelegence.RSVbaseline.correction.data.logger import WRFLogger
+from ArtificialIntelegence.RSVbaseline.correction.data.scalers import StandardScaler
 from torch.utils.data import DataLoader
-from correction.train import train
+from ArtificialIntelegence.RSVbaseline.correction.train import train
 
 
 if __name__ == "__main__":

@@ -6,9 +6,9 @@ import numpy as np
 import wrf
 
 sys.path.insert(0, '../../')
-from correction.data.train_test_split import split_train_val_test, find_files
-from correction.data.scalers import StandardScaler
-from correction.config import cfg
+from ArtificialIntelegence.RSVbaseline.correction.data.train_test_split import split_train_val_test, find_files
+from ArtificialIntelegence.RSVbaseline.correction.data.scalers import StandardScaler
+from ArtificialIntelegence.RSVbaseline.correction.config import cfg
 from tqdm import tqdm
 
 wrf_folder = '/home/wrf_data/'

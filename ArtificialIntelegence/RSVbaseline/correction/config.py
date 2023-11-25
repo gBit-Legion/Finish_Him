@@ -1,4 +1,4 @@
-from correction.helpers.ordered_easydict import OrderedEasyDict as edict
+from ArtificialIntelegence.RSVbaseline.correction.helpers.ordered_easydict import OrderedEasyDict as edict
 import os
 import torch
 

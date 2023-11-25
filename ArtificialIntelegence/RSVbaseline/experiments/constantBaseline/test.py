@@ -7,16 +7,16 @@ sys.path.insert(0, '../../')
 
 import torch
 from torch.utils.data import DataLoader
-from correction.config import cfg
-from correction.models.loss import TurbulentMSE
+from ArtificialIntelegence.RSVbaseline.correctioncorrection.config import cfg
+from ArtificialIntelegence.RSVbaseline.correctioncorrection.models.loss import TurbulentMSE
 import os
 
-from correction.models.changeToERA5 import MeanToERA5
-from correction.data.train_test_split import split_train_val_test
-from correction.data.scalers import StandardScaler
-from correction.data.my_dataloader import WRFNPDataset
-from correction.test import test_model
-from correction.models.constantBias import ConstantBias
+from ArtificialIntelegence.RSVbaseline.correction.models.changeToERA5 import MeanToERA5
+from ArtificialIntelegence.RSVbaseline.correction.data.train_test_split import split_train_val_test
+from ArtificialIntelegence.RSVbaseline.correction.data.scalers import StandardScaler
+from ArtificialIntelegence.RSVbaseline.correction.data.my_dataloader import WRFNPDataset
+from ArtificialIntelegence.RSVbaseline.correction.test import test_model
+from ArtificialIntelegence.RSVbaseline.correction.models.constantBias import ConstantBias
 
 batch_size = 64
 run_id = 1

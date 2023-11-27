@@ -289,10 +289,10 @@ p {
 .btn-hover.color-1 {
   background-image: linear-gradient(
     to right,
-    #ed6ea0,
-    #ec8c69,
-    #f7186a,
-    #fbb03b
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab
   );
   box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
 }
@@ -300,10 +300,10 @@ p {
 .btn-hover.color-2 {
   background-image: linear-gradient(
     to right,
-    #0ba360,
-    #3cba92,
-    #30dd8a,
-    #2bb673
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
   );
   box-shadow: 0 40px 100px 0 rgba(67, 245, 51, 0.25);
 }
